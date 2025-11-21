@@ -3,173 +3,171 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Agricultural Biotechnology Final Exam</title>
+  <title>Animal Science Final Exam</title>
   <style>
-    body {
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
-      background:#0f172a;
-      color:#e5e7eb;
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --border:#1f2937;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --accent:#22c55e;
+      --danger:#f97373;
     }
-    .wrap {
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      background:radial-gradient(circle at top,#1e293b,#020617);
+      color:var(--text);
+    }
+    .wrap{
       max-width:960px;
       margin:0 auto;
       padding:24px;
     }
-    .card {
-      background:#111827;
-      border:1px solid #1f2937;
+    .card{
+      background:linear-gradient(180deg,#020617,#020617 10%,#020617 70%,#020617);
+      border:1px solid var(--border);
       border-radius:16px;
       padding:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      box-shadow:0 18px 40px rgba(0,0,0,0.55);
     }
-    h1,h2 {
+    h1,h2{
       margin:0 0 10px 0;
       color:#e2e8f0;
     }
-    ul {
-      padding-left:20px;
-    }
-    .pill {
+    ul{padding-left:20px;}
+    .small{font-size:13px;color:var(--muted);}
+    .pill{
       padding:6px 10px;
       border-radius:999px;
-      background:#111827;
-      border:1px solid #1f2937;
+      background:#020617;
+      border:1px solid var(--border);
       font-size:12px;
       margin-right:6px;
       display:inline-block;
+      color:#cbd5e1;
     }
-    .meta-row {
+    .meta-row{
       margin-bottom:10px;
     }
-    .field {
+    .field{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       margin:10px 0;
     }
-    input[type="text"] {
+    input[type="text"]{
       padding:10px 12px;
       border-radius:10px;
       border:1px solid #334155;
-      background:#0b1220;
+      background:#020617;
       color:#e5e7eb;
       flex:1;
       min-width:220px;
     }
-    button {
+    button{
       padding:10px 16px;
       border-radius:12px;
       border:1px solid #263042;
-      background:#0b1326;
+      background:#020617;
       color:#e5e7eb;
       cursor:pointer;
+      transition:background .15s,transform .1s;
     }
-    button.primary {
-      background:#0d5a30;
+    button.primary{
+      background:linear-gradient(135deg,#16a34a,#22c55e);
+      border-color:#15803d;
+      color:#022c22;
+      font-weight:600;
     }
-    button:disabled {
+    button:disabled{
       opacity:.6;
       cursor:not-allowed;
     }
-    .progress {
+    button:hover:not(:disabled){
+      filter:brightness(1.05);
+      transform:translateY(-1px);
+    }
+    .progress{
       height:8px;
-      background:#1f2937;
+      background:#020617;
       border-radius:999px;
       margin-bottom:12px;
+      border:1px solid #1f2937;
       overflow:hidden;
     }
-    .bar {
+    .bar{
       height:100%;
       width:0%;
-      background:#22c55e;
+      background:linear-gradient(90deg,#22c55e,#4ade80);
       transition:width .2s ease-out;
     }
-    #choices {
+    #choices{
       display:flex;
       flex-direction:column;
       gap:12px;
-      margin-top:12px;
+      width:100%;
     }
-/* FIX CHOICES OVERFLOWING HORIZONTALLY */
-#choices {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-.choice {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 100% !important;
-  background: #0b1220;
-  border: 1px solid #1f2937;
-  border-radius: 10px;
-  padding: 12px;
-  box-sizing: border-box;
-}
-
-.choice input {
-  margin-top: 4px;
-  flex-shrink: 0;
-}
-
-.choice div {
-  flex: 1;
-  white-space: normal !important;
-  overflow-wrap: break-word !important;
-  word-break: break-word !important;
-}
-
-
-    .choice b {
-  display: inline-block;
-  width: 22px;          /* fixed width for letters A/B/C/D */
-}
-
-    .footer {
+    .choice{
+      display:flex;
+      flex-direction:row;
+      align-items:flex-start;
+      width:100%;
+      max-width:100% !important;
+      background:#020617;
+      border:1px solid #1f2937;
+      border-radius:10px;
+      padding:12px;
+      box-sizing:border-box;
+    }
+    .choice input{
+      margin-top:4px;
+      flex-shrink:0;
+    }
+    .choice div{
+      flex:1;
+      white-space:normal !important;
+      overflow-wrap:break-word !important;
+      word-break:break-word !important;
+      color:#e5e7eb;
+    }
+    .choice b{
+      display:inline-block;
+      width:22px;
+    }
+    .footer{
       display:flex;
       justify-content:space-between;
       gap:10px;
       margin-top:20px;
       flex-wrap:wrap;
     }
-    .hidden {
-      display:none;
-    }
-    .error {
+    .hidden{display:none;}
+    .error{
       color:#fecaca;
       font-size:13px;
       margin-top:6px;
     }
-    .small {
-      font-size:12px;
-      color:#9ca3af;
-    }
-    @media (max-width:600px) {
-      .footer {
-        flex-direction:column;
-        align-items:stretch;
-      }
-      button {
-        width:100%;
-      }
+    @media (max-width:600px){
+      .footer{flex-direction:column;align-items:stretch;}
+      button{width:100%;}
     }
   </style>
 </head>
+
 <body>
 <div class="wrap">
   <div class="card">
-    <h1>Agricultural Biotechnology Final Exam</h1>
+    <h1>Animal Science Final Exam</h1>
 
     <div id="meta" class="meta-row hidden">
       <span class="pill" id="pillName">Name: —</span>
       <span class="pill" id="pillSection">Year/Section: —</span>
       <span class="pill" id="pillTimer">Time: 60:00</span>
       <span class="pill" id="pillCount">Q: — / —</span>
+      <span class="pill" id="pillAttempts">Attempts used: 0 / 2</span>
     </div>
 
     <!-- Stage 0: Instructions -->
@@ -178,10 +176,12 @@
       <ul>
         <li>This exam is <strong>screen recorded</strong>.</li>
         <li>You have <strong>1 hour</strong> to finish once you start.</li>
-        <li>You may take the exam <strong>twice</strong>. After the second attempt, all further attempts are blocked.</li>
-        <li>The link closes at <strong>11:59:59 PM on 21 November 2025</strong>. After this, you will not be able to access the exam.</li>
+        <li>You may take the exam <strong>twice</strong>. After the second take, all attempts will be blocked.</li>
+        <li>The link will be closed at <strong>11:59:59 PM on 20 November 2025</strong>.</li>
       </ul>
-      <p class="small">Make sure you have a stable internet connection. Do not close the tab while taking the exam.</p>
+      <p class="small">
+        Make sure you have a stable internet connection. Do not close this tab while taking the exam.
+      </p>
       <div class="error" id="errStage0" style="display:none;"></div>
       <button class="primary" id="btnUnderstand">I understand</button>
     </section>
@@ -191,7 +191,7 @@
       <h2>Student Information</h2>
       <div class="field">
         <input type="text" id="inpName" placeholder="Full Name"/>
-        <input type="text" id="inpSection" placeholder="Year & Section (e.g., BS Agri 3A)"/>
+        <input type="text" id="inpSection" placeholder="Year & Section"/>
       </div>
       <div class="error" id="errStage1" style="display:none;"></div>
       <div class="footer">
@@ -200,11 +200,9 @@
       </div>
     </section>
 
-    <!-- Stage 2: Exam -->
+    <!-- Stage 2: Questions -->
     <section id="stage2" class="hidden">
-      <div class="progress">
-        <div id="bar" class="bar"></div>
-      </div>
+      <div class="progress"><div id="bar" class="bar"></div></div>
       <p id="qtext"></p>
       <div id="choices"></div>
       <div class="error" id="errStage2" style="display:none;"></div>
@@ -222,7 +220,9 @@
       <h2>Submission Complete</h2>
       <p><strong id="rName"></strong> (<span id="rSection"></span>)</p>
       <p>Your Score: <strong id="rScore"></strong></p>
-      <p class="small">Your complete answer sheet (chosen answers and correct answers) has been saved to the database.</p>
+      <p class="small">
+        Your answers have been saved to the database. You may retake the exam only if you still have remaining attempts.
+      </p>
       <p class="error" id="rNote" style="display:none;"></p>
     </section>
 
@@ -230,465 +230,82 @@
 </div>
 
 <script type="module">
+/* =============================
+   ANSCI QUESTION BANK (1–50)
+   ============================= */
+
 const QUESTIONS = [
-  {
-    "num": 1,
-    "q": "Biocon agents such as compost activators are primarily used to:",
-    "A": "Kill all microorganisms in compost",
-    "B": "Speed up the decomposition of organic materials",
-    "C": "Sterilize soil",
-    "D": "Remove all moisture from compost",
-    "ans": "B"
-  },
-  {
-    "num": 2,
-    "q": "Which microorganism group is MOST commonly involved in compost activation and organic waste fermentation?",
-    "A": "Viruses",
-    "B": "Lactic acid bacteria and fungi",
-    "C": "Helminths",
-    "D": "Nematodes",
-    "ans": "B"
-  },
-  {
-    "num": 3,
-    "q": "Why are fermentation agents added to organic fertilizers?",
-    "A": "To make the fertilizer smell good only",
-    "B": "To promote controlled microbial activity that stabilizes nutrients",
-    "C": "To increase the weight artificially",
-    "D": "To remove all nutrients from the compost",
-    "ans": "B"
-  },
-  {
-    "num": 4,
-    "q": "A farmer wants faster composting of rice straw and animal manure. Which practice best applies the use of biocon agents?",
-    "A": "Adding compost activators and maintaining proper moisture and aeration",
-    "B": "Burning the straw before composting",
-    "C": "Storing the manure in sealed plastic bags",
-    "D": "Flooding the compost pit with water",
-    "ans": "A"
-  },
-  {
-    "num": 5,
-    "q": "Which of the following is an advantage of using biocon or compost activators in smallholder farms?",
-    "A": "They permanently sterilize the soil",
-    "B": "They shorten composting time and improve nutrient availability",
-    "C": "They eliminate the need for any organic waste",
-    "D": "They allow farmers to ignore composting conditions",
-    "ans": "B"
-  },
-  {
-    "num": 6,
-    "q": "Biocon-based fermentation of crop residues and animal manure helps farmers by:",
-    "A": "Reducing the organic matter content of the soil",
-    "B": "Producing stable, nutrient-rich organic fertilizer with fewer odors",
-    "C": "Increasing greenhouse gas emissions",
-    "D": "Making soil more compact and less porous",
-    "ans": "C"
-  },
-  {
-    "num": 7,
-    "q": "A cooperative is evaluating several products labeled as compost “biocon agents.” What is the MOST important factor they should verify?",
-    "A": "Color and smell only",
-    "B": "Presence of beneficial microorganisms and clear instructions for use",
-    "C": "Brand popularity only",
-    "D": "Imported origin",
-    "ans": "B"
-  },
-  {
-    "num": 8,
-    "q": "When using fermentation agents for silage or organic fertilizer, which farmer practice best maintains their effectiveness?",
-    "A": "Exposing the agents to direct sunlight for long periods",
-    "B": "Storing them according to label instructions and mixing at recommended rates",
-    "C": "Mixing them with any chemical pesticide",
-    "D": "Applying them only once regardless of conditions",
-    "ans": "B"
-  },
-  {
-    "num": 9,
-    "q": "From a One Health perspective, why is proper composting and fermentation of organic wastes important?",
-    "A": "It focuses only on crop yield",
-    "B": "It reduces pathogens and odors, improving environmental and community health",
-    "C": "It increases uncontrolled pest populations",
-    "D": "It eliminates the need for hygiene in handling wastes",
-    "ans": "B"
-  },
-  {
-    "num": 10,
-    "q": "An agricultural extension worker promotes the use of biocon agents instead of open-field burning of residues. Which benefit BEST supports this recommendation?",
-    "A": "Open burning always increases soil fertility",
-    "B": "Biocon-assisted composting reduces air pollution and recycles nutrients back to the field",
-    "C": "Biocon agents permanently eliminate all weeds",
-    "D": "Biocon use reduces the need for any farm labor",
-    "ans": "C"
-  },
-  {
-    "num": 11,
-    "q": "Biopharming refers to:",
-    "A": "Traditional crop rotation for soil fertility",
-    "B": "Using farm animals to process household waste",
-    "C": "Producing pharmaceutical or industrial compounds using genetically modified plants or animals",
-    "D": "Manual seed selection by farmers",
-    "ans": "B"
-  },
-  {
-    "num": 12,
-    "q": "Which example BEST illustrates biopharming?",
-    "A": "Purely organic rice farming",
-    "B": "Maize engineered to produce edible vaccines against a specific disease",
-    "C": "Traditional herbal medicine use",
-    "D": "Using compost as fertilizer",
-    "ans": "A"
-  },
-  {
-    "num": 13,
-    "q": "One major concern about biopharming in open-field conditions is:",
-    "A": "Lack of any effect on surrounding crops",
-    "B": "Potential gene flow or mixing with food/feed crops, causing unintended exposure",
-    "C": "Increased soil erosion",
-    "D": "Immediate extinction of wild species",
-    "ans": "B"
-  },
-  {
-    "num": 14,
-    "q": "Which BEST describes a key regulatory requirement for biopharming projects?",
-    "A": "No regulation is required",
-    "B": "Strict biosafety evaluation, containment measures, and monitoring to prevent unintended exposure",
-    "C": "Only voluntary guidelines without any formal approval",
-    "D": "Approval only from international agencies, not from local authorities",
-    "ans": "B"
-  },
-  {
-    "num": 15,
-    "q": "From a farmer and consumer perspective, what is an important ethical question regarding biopharming?",
-    "A": "Whether compost is allowed in the farm",
-    "B": "How to ensure that pharmaceuticals produced in crops do not accidentally enter the regular food chain",
-    "C": "Whether to irrigate crops or not",
-    "D": "How to stop all innovation in agriculture",
-    "ans": "B"
-  },
-  {
-    "num": 16,
-    "q": "\"Fake seeds\" in agriculture usually refer to:",
-    "A": "Seeds that are larger than normal",
-    "B": "Seeds with falsified labels or poor genetic and physical quality sold as branded seeds",
-    "C": "Any seed from farmers’ fields",
-    "D": "Seeds with high germination",
-    "ans": "B"
-  },
-  {
-    "num": 17,
-    "q": "Which is a common consequence of fake or substandard seeds on farmers?",
-    "A": "Higher and more reliable yields",
-    "B": "Crop failure, reduced yield, and financial loss",
-    "C": "Guaranteed disease resistance",
-    "D": "Improved market prices",
-    "ans": "B"
-  },
-  {
-    "num": 18,
-    "q": "Which measure can help protect farmers from fake seeds?",
-    "A": "Buying unlabeled seeds from unknown vendors",
-    "B": "Purchasing seeds only from certified dealers and checking official labels",
-    "C": "Avoiding any record-keeping",
-    "D": "Ignoring expiration dates and quality seals",
-    "ans": "B"
-  },
-  {
-    "num": 19,
-    "q": "At the policy level, how can governments reduce the occurrence of fake seeds in the market?",
-    "A": "By not regulating seed quality at all",
-    "B": "By strengthening seed certification, market surveillance, and penalties for fraud",
-    "C": "By banning all private seed companies",
-    "D": "By removing all inspection systems",
-    "ans": "B"
-  },
-  {
-    "num": 20,
-    "q": "From a One Health and food security perspective, the widespread circulation of fake seeds is a concern because:",
-    "A": "It always increases biodiversity",
-    "B": "It threatens harvest reliability, farmer income, and community food supply",
-    "C": "It only affects ornamental plants",
-    "D": "It only affects urban consumers",
-    "ans": "B"
-  },
-  {
-    "num": 21,
-    "q": "Vaccines used in livestock production primarily aim to:",
-    "A": "Decrease all animal growth",
-    "B": "Prevent or reduce the severity of infectious diseases, improving animal health and productivity",
-    "C": "Eliminate the need for any hygiene",
-    "D": "Replace all types of feed",
-    "ans": "B"
-  },
-  {
-    "num": 22,
-    "q": "Which is an example of a benefit of vaccination from a public health perspective?",
-    "A": "Increasing the risk of zoonotic diseases",
-    "B": "Reducing transmission of zoonotic diseases from animals to humans",
-    "C": "Guaranteeing overuse of antibiotics",
-    "D": "Eliminating the need for surveillance",
-    "ans": "B"
-  },
-  {
-    "num": 23,
-    "q": "Cold chain management in vaccine distribution is important because:",
-    "A": "Vaccines are always heat stable",
-    "B": "Improper temperature can reduce vaccine effectiveness or make them unsafe",
-    "C": "It only affects the label color",
-    "D": "It is done only for marketing purposes",
-    "ans": "B"
-  },
-  {
-    "num": 24,
-    "q": "In agricultural communities, misleading claims about vaccines (e.g., that they cause the disease they prevent) can lead to:",
-    "A": "Improved vaccination rates",
-    "B": "Vaccine hesitancy and disease outbreaks",
-    "C": "Stronger trust in science",
-    "D": "Uniform adoption of best practices",
-    "ans": "B"
-  },
-  {
-    "num": 25,
-    "q": "From a sustainable livestock production perspective, integrating proper vaccination with good nutrition and housing can:",
-    "A": "Reduce overall productivity",
-    "B": "Improve animal welfare, decrease mortality, and stabilize farmer income",
-    "C": "Make disease surveillance unnecessary",
-    "D": "Eliminate the need for trained veterinarians",
-    "ans": "B"
-  },
-  {
-    "num": 26,
-    "q": "Artificial insemination (AI) in animals is best described as:",
-    "A": "Natural mating in a pasture",
-    "B": "Manual collection of semen and its controlled deposition into the female reproductive tract",
-    "C": "Cloning of animals in the lab",
-    "D": "Surgical removal of ovaries",
-    "ans": "B"
-  },
-  {
-    "num": 27,
-    "q": "Multiple Ovulation and Embryo Transfer (MOET) allows breeders to:",
-    "A": "Reduce the genetic diversity of herds only",
-    "B": "Obtain more offspring from genetically superior females in a shorter time",
-    "C": "Stop all natural reproduction",
-    "D": "Avoid any record-keeping",
-    "ans": "B"
-  },
-  {
-    "num": 28,
-    "q": "Which is a primary advantage of AI and MOET in improving animal genetics?",
-    "A": "Random mating without selection",
-    "B": "Faster dissemination of desirable traits such as high milk yield or growth rate",
-    "C": "Elimination of all genetic variation",
-    "D": "Guaranteed absence of diseases in offspring",
-    "ans": "B"
-  },
-  {
-    "num": 29,
-    "q": "A key ethical and practical concern with AI/MOET in smallholder settings is:",
-    "A": "Too little genetic improvement",
-    "B": "Possible loss of locally adapted breeds if only a few high-performing lines are used",
-    "C": "Lack of any need for training",
-    "D": "Total independence from veterinary services",
-    "ans": "B"
-  },
-  {
-    "num": 30,
-    "q": "From a One Health viewpoint, responsible use of AI and MOET includes:",
-    "A": "Ignoring animal welfare",
-    "B": "Considering animal welfare, genetic diversity, and long-term resilience of production systems",
-    "C": "Focusing only on short-term milk yield",
-    "D": "Completely avoiding any health monitoring",
-    "ans": "B"
-  },
-  {
-    "num": 31,
-    "q": "Probiotics in animal nutrition refer to:",
-    "A": "Any form of antibiotic used in feed",
-    "B": "Live beneficial microorganisms given to improve gut health and overall performance",
-    "C": "Synthetic growth hormones",
-    "D": "Inert feed additives with no biological effect",
-    "ans": "B"
-  },
-  {
-    "num": 32,
-    "q": "Which is a commonly reported benefit of probiotics in livestock?",
-    "A": "Reduced feed efficiency",
-    "B": "Improved digestion, better feed conversion, and sometimes reduced diarrhea",
-    "C": "Increased toxin levels in the gut",
-    "D": "Complete replacement of clean water",
-    "ans": "B"
-  },
-  {
-    "num": 33,
-    "q": "Probiotics and good gut health can contribute to reduced antibiotic use because:",
-    "A": "They cause more infections",
-    "B": "They support the animal’s natural defenses, possibly reducing the frequency of infections",
-    "C": "They directly eliminate the need for hygiene",
-    "D": "They permanently sterilize the intestines",
-    "ans": "B"
-  },
-  {
-    "num": 34,
-    "q": "When farmers use probiotics, it is important that they:",
-    "A": "Store them in any condition",
-    "B": "Follow product instructions, including storage and mixing rates, to maintain viability of microorganisms",
-    "C": "Mix them with any chemical pesticide in feed",
-    "D": "Add them only once in the animal’s life",
-    "ans": "B"
-  },
-  {
-    "num": 35,
-    "q": "From a One Health perspective, promoting probiotics and good management in place of routine antibiotic growth promoters helps by:",
-    "A": "Increasing antimicrobial resistance",
-    "B": "Potentially reducing selection pressure for antimicrobial-resistant bacteria",
-    "C": "Eliminating the need for disease monitoring",
-    "D": "Guaranteeing that no animal will ever get sick",
-    "ans": "B"
-  },
-  {
-    "num": 36,
-    "q": "Which statement BEST reflects the idea of \"biotechnology products nearing commercialization\"?",
-    "A": "All biotech products are still in basic research",
-    "B": "Some products, such as GM crops with improved traits, gene-based vaccines, or biopharmaceuticals, are close to or already entering the market",
-    "C": "No biotech product is allowed anywhere in the world",
-    "D": "Only traditional technologies are relevant for modern agriculture",
-    "ans": "B"
-  },
-  {
-    "num": 37,
-    "q": "A key factor determining whether a new biotech product can be commercialized is:",
-    "A": "Its popularity on social media only",
-    "B": "Compliance with biosafety, efficacy, ethical, and regulatory requirements",
-    "C": "Lack of any regulatory review",
-    "D": "Only its price in the market",
-    "ans": "B"
-  },
-  {
-    "num": 38,
-    "q": "Consider a genetically modified crop that is drought tolerant and pest resistant. From a sustainability perspective, which potential advantage is MOST relevant?",
-    "A": "It always requires more pesticides",
-    "B": "It may reduce input use and crop losses, contributing to more stable yields under stress conditions",
-    "C": "It automatically causes soil erosion",
-    "D": "It eliminates the need for training farmers",
-    "ans": "B"
-  },
-  {
-    "num": 39,
-    "q": "In discussing the future of biotechnology, which aspect is important for ensuring public trust?",
-    "A": "Keeping all information confidential",
-    "B": "Transparent risk assessment, stakeholder engagement, and clear communication of benefits and risks",
-    "C": "Excluding farmers and consumers from discussions",
-    "D": "Ignoring local cultural and ethical concerns",
-    "ans": "B"
-  },
-  {
-    "num": 40,
-    "q": "Biotechnology in a sustainable future is BEST described as:",
-    "A": "A single solution to all agricultural problems",
-    "B": "One of several tools that, when used responsibly with traditional practices, can help address food security, health, and environmental challenges",
-    "C": "A technology that replaces all local knowledge",
-    "D": "A replacement for good governance and policy",
-    "ans": "B"
-  },
-  {
-    "num": 41,
-    "q": "Why are regulations essential in the use of agricultural biotechnology?",
-    "A": "To stop all innovation",
-    "B": "To ensure that biotech products are safe for human, animal, and environmental health before and after release",
-    "C": "To make approval faster regardless of safety",
-    "D": "To benefit only a few companies",
-    "ans": "B"
-  },
-  {
-    "num": 42,
-    "q": "In many countries, which body typically oversees biosafety assessments of genetically modified crops?",
-    "A": "Only private seed companies",
-    "B": "Relevant government biosafety or regulatory agencies and committees",
-    "C": "Supermarkets",
-    "D": "Farmer associations alone",
-    "ans": "B"
-  },
-  {
-    "num": 43,
-    "q": "From a One Health perspective, regulation of biotechnology should consider:",
-    "A": "Human health only",
-    "B": "Human, animal, and environmental health together, including socio-economic impacts",
-    "C": "Economic cost only",
-    "D": "Lab convenience only",
-    "ans": "B"
-  },
-  {
-    "num": 44,
-    "q": "What is one potential risk if biotechnology products are introduced without adequate regulation and monitoring?",
-    "A": "Guaranteed long-term sustainability",
-    "B": "Unintended harm to ecosystems, food safety issues, or loss of public trust",
-    "C": "Improved risk communication",
-    "D": "Perfect knowledge among all stakeholders",
-    "ans": "B"
-  },
-  {
-    "num": 45,
-    "q": "Stakeholder participation in biotechnology regulation is important because:",
-    "A": "It slows down all processes for no reason",
-    "B": "It allows different groups (farmers, consumers, scientists, policymakers) to share concerns and expectations, leading to more acceptable decisions",
-    "C": "It removes the need for scientific evidence",
-    "D": "It focuses only on company profits",
-    "ans": "B"
-  },
-  {
-    "num": 46,
-    "q": "A farmer group is considering adopting a new biotech crop. Which combination of actions BEST supports responsible decision-making?",
-    "A": "Relying only on rumors",
-    "B": "Consulting extension workers, checking official regulatory approvals, and comparing performance with existing varieties",
-    "C": "Ignoring local conditions",
-    "D": "Using the crop without any information",
-    "ans": "B"
-  },
-  {
-    "num": 47,
-    "q": "From a long-term sustainability standpoint, why is it important to integrate biotechnology with other practices such as agroecology and good management?",
-    "A": "Biotechnology alone is always sufficient",
-    "B": "Combining different approaches can maximize benefits while reducing risks and dependency on a single solution",
-    "C": "Other practices always conflict with biotechnology",
-    "D": "It eliminates the need for regulations",
-    "ans": "B"
-  },
-  {
-    "num": 48,
-    "q": "Farmers and communities sometimes worry about losing control over seeds and technologies. What is one way to address this concern in the context of biotechnology?",
-    "A": "Limiting any information to farmers",
-    "B": "Developing policies that protect farmers’ rights, encourage local breeding, and ensure fair access to technology",
-    "C": "Eliminating all local varieties",
-    "D": "Banning farmers from saving seeds",
-    "ans": "B"
-  },
-  {
-    "num": 49,
-    "q": "Considering One Health and sustainability, the MOST appropriate view of agricultural biotechnology is that it:",
-    "A": "Should replace all other technologies",
-    "B": "Should be evaluated case by case, integrated with other practices, and governed by strong biosafety and ethical frameworks",
-    "C": "Can be used without any regulation",
-    "D": "Has no role in modern agriculture",
-    "ans": "B"
-  },
-  {
-    "num": 50,
-    "q": "A country invests in regulations, training, and infrastructure to support both modern biotechnology and traditional practices. From a sustainability perspective, how should this strategy be evaluated?",
-    "A": "Wasteful, since only one technology is needed",
-    "B": "Positive, because it balances innovation, safety, and inclusiveness for different types of farmers",
-    "C": "Harmful, as it limits choices",
-    "D": "Neutral, with no real impact (OK)",
-    "ans": "B"
-  }
+  {num:1, q:"A gene is best defined as:", A:"A nutrient in the diet", B:"A unit of heredity that controls traits", C:"A type of hormone", D:"A body organ", ans:"B"},
+  {num:2, q:"Genes influence animal productivity by:", A:"Deciding what feeds animals prefer", B:"Controlling inherited traits such as growth, milk, and egg production", C:"Eliminating all environmental effects", D:"Creating diseases", ans:"B"},
+  {num:3, q:"A breeder selects animals with high milk yield to produce the next generation. This is an example of:", A:"Nutritional management", B:"Environmental selection", C:"Genetic selection based on desirable traits", D:"Random mating", ans:"C"},
+  {num:4, q:"Records show that two cows have similar environments but different milk yields. What is the most logical analysis?", A:"Milk yield is unrelated to genetics", B:"Genetic differences likely account for the variation", C:"Environment controls 100% of traits", D:"Nutrition plays no role", ans:"B"},
+  {num:5, q:"A breeder must choose between a cow with high milk potential but low fertility and another with moderate milk but excellent fertility. From a breeding standpoint, how should this be evaluated?", A:"Choose only the high milk cow", B:"Consider overall productivity, fertility, and herd goals before selecting", C:"Fertility does not matter", D:"Traits should never be compared", ans:"B"},
+  {num:6, q:"Reproductive traits such as fertility and litter size are considered:", A:"Production traits", B:"Functional traits", C:"Aesthetic traits", D:"Irrelevant traits", ans:"B"},
+  {num:7, q:"Growth rate, carcass quality, and egg production are examples of:", A:"Behavioral traits", B:"Production traits", C:"Non-genetic traits", D:"Diseases", ans:"B"},
+  {num:8, q:"A poultry farmer selects hens that lay earlier and more frequently. What trait is being selected?", A:"Behavioral", B:"Egg production", C:"Structural", D:"Aesthetic", ans:"B"},
+  {num:9, q:"A study shows that pigs with slower growth have lower feed efficiency. What does this imply?", A:"Growth and feed efficiency may be genetically related", B:"Growth has no effect on feed use", C:"Feed efficiency is random", D:"Slow growth is beneficial", ans:"A"},
+  {num:10, q:"A farmer prioritizes calm temperament in cattle to reduce accidents. How should this decision be evaluated?", A:"Unimportant to breeding", B:"Positive, because behavior affects handling and productivity", C:"Negative, because temperament is not heritable", D:"Only color should be selected", ans:"B"},
+
+  {num:11, q:"A dominant gene is expressed when:", A:"Only the recessive allele is present", B:"Only in females", C:"Present in one or both alleles", D:"The environment is perfect", ans:"C"},
+  {num:12, q:"Recessive traits appear only when:", A:"The dominant allele is present", B:"The recessive allele is masked", C:"An individual has two recessive alleles", D:"Animals are unhealthy", ans:"C"},
+  {num:13, q:"Crossing a pure red bull with a pure white cow produces all roan calves. This demonstrates:", A:"Complete dominance", B:"Incomplete dominance", C:"Mutation", D:"Codominance", ans:"D"},
+  {num:14, q:"If two heterozygous parents mate, the expected ratio of dominant to recessive offspring is:", A:"1:1", B:"3:1", C:"1:3", D:"2:2", ans:"B"},
+  {num:15, q:"A breeder insists that environment alone determines traits. How should this be evaluated genetically?", A:"Correct", B:"Incorrect, because both genes and environment affect traits", C:"Genes are irrelevant", D:"Only nutrition matters", ans:"B"},
+
+  {num:16, q:"A gene pool refers to:", A:"A water source for animals", B:"The total genetic material in a population", C:"The feed bucket", D:"All animals in a farm", ans:"B"},
+  {num:17, q:"Population genetics is the study of:", A:"Nutrition only", B:"How gene frequencies change in groups of animals", C:"Marketing animals", D:"Slaughtering procedures", ans:"B"},
+  {num:18, q:"A farmer introduces unrelated males into the herd to increase variation. This is:", A:"Inbreeding", B:"Genetic drift", C:"Outcrossing", D:"Selection", ans:"C"},
+  {num:19, q:"A population shows reduced fertility and growth due to high inbreeding. What does this indicate?", A:"Inbreeding depression", B:"Hybrid vigor", C:"No genetic effect", D:"Sudden mutation", ans:"A"},
+  {num:20, q:"Which strategy should be prioritized for long-term herd improvement?", A:"Random mating", B:"Balanced selection for multiple traits", C:"Focusing on one trait only", D:"Avoiding performance records", ans:"B"},
+
+  {num:21, q:"Artificial insemination (AI) is:", A:"Natural mating", B:"Direct insertion of semen into the reproductive tract", C:"Embryo destruction", D:"Castration", ans:"B"},
+  {num:22, q:"MOET increases productivity by:", A:"Producing more offspring from superior females", B:"Reducing embryo numbers", C:"Preventing ovulation", D:"Increasing feeding cost", ans:"A"},
+  {num:23, q:"A farmer uses pure breeding to maintain desirable traits in pigs. This is an example of:", A:"Random mating", B:"Outbreeding", C:"Inbreeding or linebreeding", D:"Crossbreeding", ans:"C"},
+  {num:24, q:"Crossbreeding commonly results in:", A:"Inbreeding depression", B:"Hybrid vigor or heterosis", C:"Reduced performance", D:"Lower fertility", ans:"B"},
+  {num:25, q:"Should a meat-focused farm rely solely on inbreeding?", A:"Yes", B:"No, because excessive inbreeding reduces vigor; crossbreeding improves performance", C:"It does not matter", D:"Only color matters", ans:"B"},
+
+  {num:26, q:"Animal nutrition is the study of:", A:"Animal color", B:"How the body uses food for growth and maintenance", C:"Meat grading", D:"Reproduction", ans:"B"},
+  {num:27, q:"Carbohydrates mainly provide:", A:"Energy", B:"Minerals", C:"Vitamins", D:"Hormones", ans:"A"},
+  {num:28, q:"A pig showing poor growth and rough hair coat likely lacks:", A:"Water", B:"Protein", C:"Fat", D:"Minerals", ans:"B"},
+  {num:29, q:"Low calcium and weak bones in young animals most likely indicates:", A:"Mineral excess", B:"Calcium or Vitamin D deficiency", C:"Too much sunlight", D:"Protein deficiency", ans:"B"},
+  {num:30, q:"When evaluating nutrient programs, which principle is most important?", A:"Cheapest feed always", B:"Feeds must meet requirements for maintenance, growth, and production", C:"Feeding should not be measured", D:"Only water matters", ans:"B"},
+
+  {num:31, q:"Digestion refers to:", A:"Storing nutrients", B:"Breaking down feed into absorbable forms", C:"Breathing", D:"Reproduction", ans:"B"},
+  {num:32, q:"Absorption occurs mainly in the:", A:"Mouth", B:"Stomach", C:"Small intestine", D:"Hooves", ans:"C"},
+  {num:33, q:"A ruminant produces gas and bloats after rapid diet changes. This demonstrates:", A:"Good digestion", B:"Fermentation imbalance", C:"No digestive issue", D:"Vitamin excess", ans:"B"},
+  {num:34, q:"Rumen fluid analysis shows low microbial activity. Likely conclusion:", A:"Healthy digestion", B:"Poor rumen function due to imbalanced diet", C:"No relation to feeding", D:"Overactive digestion", ans:"B"},
+  {num:35, q:"Evaluating digestion and metabolism is essential because:", A:"Only palatability matters", B:"Nutrients must be usable by the animal, not just present", C:"Nutrients do not affect performance", D:"All feeds digest the same", ans:"B"},
+
+  {num:36, q:"Weak legs and rickets in young animals are commonly caused by:", A:"Protein deficiency", B:"Vitamin D or calcium deficiency", C:"Excess fat", D:"Too much light", ans:"B"},
+  {num:37, q:"Poor feathering and low egg production in poultry may indicate:", A:"Vitamin deficiency", B:"Water excess", C:"Perfect nutrition", D:"No nutritional issue", ans:"A"},
+  {num:38, q:"A pig with poor appetite and anemia likely lacks:", A:"Iron", B:"Protein", C:"Vitamin C", D:"Phosphorus", ans:"A"},
+  {num:39, q:"Low magnesium levels causing muscle tremors indicates:", A:"Mineral toxicity", B:"Grass tetany or magnesium deficiency", C:"Improved health", D:"No metabolic issue", ans:"B"},
+  {num:40, q:"Correcting vitamin/mineral deficiencies:", A:"Cannot affect productivity", B:"Improves growth, immunity, and performance", C:"Only genetics determines health", D:"Water is the only required nutrient", ans:"B"},
+
+  {num:41, q:"“Dressing percentage” refers to:", A:"Weight of hide", B:"Carcass weight ÷ live weight ×100", C:"Total feed consumed", D:"Bone weight only", ans:"B"},
+  {num:42, q:"Poultry usually have a dressing percentage of:", A:"10%", B:"35%", C:"70%–75%", D:"100%", ans:"C"},
+  {num:43, q:"If a pig weighs 90 kg live and yields a 65 kg carcass, dressing yield is:", A:"50%", B:"62%", C:"72%", D:"80%", ans:"C"},
+  {num:44, q:"Beef generally has higher marbling than poultry. This means:", A:"Beef has more intramuscular fat", B:"Poultry is fattier", C:"Chickens have higher marbling", D:"Marbling does not affect quality", ans:"A"},
+  {num:45, q:"A marketing system selling meat directly from producers to consumers is:", A:"Terminal market", B:"Direct market", C:"Auction market", D:"Wholesale market", ans:"B"},
+
+  {num:46, q:"Proximate analysis measures:", A:"Hormones", B:"Moisture, protein, fat, ash, fiber", C:"Vitamins only", D:"Color only", ans:"B"},
+  {num:47, q:"Chicken meat generally contains:", A:"Higher fat than pork", B:"Lower fat and higher protein than many red meats", C:"No protein", D:"No nutrients", ans:"B"},
+  {num:48, q:"A carcass with excessive bruising results from:", A:"Proper care", B:"Poor pre-slaughter management", C:"High marbling", D:"Genetic defect", ans:"B"},
+  {num:49, q:"Consumers avoid meat with poor color and bad odor because:", A:"Appearance and freshness influence acceptance", B:"Quality does not matter", C:"No one cares about safety", D:"All meats look the same", ans:"A"},
+  {num:50, q:"Strengthening meat inspection and slaughterhouse standards is:", A:"Unnecessary", B:"Important for safety, quality, and consumer protection", C:"Harmful to farmers", D:"Irrelevant", ans:"B"},
 ];
 
-// ==== Firebase imports and setup ====
+/* =============================
+   FIREBASE INITIALIZATION
+   ============================= */
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
-  getFirestore, collection, getDocs, doc, setDoc, serverTimestamp 
+  getFirestore, doc, getDoc, setDoc, serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { 
+  getAuth, signInAnonymously 
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB-idZOq8h9sVttNdzXE2t8FMoYI_snq7g",
@@ -700,22 +317,26 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db  = getFirestore(app);
 const auth = getAuth(app);
-try {
-  await signInAnonymously(auth);
-} catch(e) {
-  console.warn("Anonymous auth failed:", e);
-}
+try { await signInAnonymously(auth); } catch(e){ console.warn("Anon auth failed:", e); }
 
-// ==== Exam constants ====
-const EXAM_DOC_ID = "KzRzubb5df1TV1gL2RuF";
-const COURSE_TITLE = document.title;
-const EXAM_SECONDS = 60 * 60;
-// JS Date: year, monthIndex (0=Jan), day, hour, min, sec
-const CLOSING_TIME = new Date(2025, 10, 21, 23, 59, 59); // 21 Nov 2025, 11:59:59 PM
+/* =============================
+   EXAM CONFIG
+   ============================= */
 
-// ==== DOM references ====
+const COURSE_TITLE = "Animal Science Final Exam"; // stored in Firestore "Course"
+document.title = COURSE_TITLE;
+
+const EXAM_DOC_ID = "ANSCI2025Final";     // finals-exam / ANSCI2025Final / submissions / studentId
+const EXAM_SECONDS = 60 * 60;             // 1 hour
+// Note: JS months are 0-based: 10 = November
+const CLOSING_TIME = new Date(2025, 10, 20, 23, 59, 59);
+
+/* =============================
+   DOM ELEMENTS
+   ============================= */
+
 const stage0 = document.getElementById("stage0");
 const stage1 = document.getElementById("stage1");
 const stage2 = document.getElementById("stage2");
@@ -734,7 +355,6 @@ const btnSubmit = document.getElementById("btnSubmit");
 
 const inpName = document.getElementById("inpName");
 const inpSection = document.getElementById("inpSection");
-
 const qtext = document.getElementById("qtext");
 const choicesEl = document.getElementById("choices");
 const barEl = document.getElementById("bar");
@@ -744,196 +364,174 @@ const pillName = document.getElementById("pillName");
 const pillSection = document.getElementById("pillSection");
 const pillTimer = document.getElementById("pillTimer");
 const pillCount = document.getElementById("pillCount");
+const pillAttempts = document.getElementById("pillAttempts");
 
 const rName = document.getElementById("rName");
 const rSection = document.getElementById("rSection");
 const rScore = document.getElementById("rScore");
 const rNote = document.getElementById("rNote");
 
-// ==== State ====
+/* =============================
+   STATE
+   ============================= */
+
 let currentIndex = 0;
 let selectedAnswers = new Array(QUESTIONS.length).fill(null);
 let secondsLeft = EXAM_SECONDS;
 let timerId = null;
+
 let studentId = null;
 let studentName = "";
 let studentSection = "";
+let attemptCountUsed = 0; // from Firestore
 let submitting = false;
 
-// ==== Helper functions ====
-function isClosed() {
-  const now = new Date();
-  return now > CLOSING_TIME;
-}
+/* =============================
+   HELPERS
+   ============================= */
 
-function showErr(el, msg) {
+function isClosed(){
+  return new Date() > CLOSING_TIME;
+}
+function showErr(el,msg){
   el.textContent = msg;
   el.style.display = msg ? "block" : "none";
 }
-
-function switchStage(stage) {
+function switchStage(st){
   stage0.classList.add("hidden");
   stage1.classList.add("hidden");
   stage2.classList.add("hidden");
   stage3.classList.add("hidden");
-  stage.classList.remove("hidden");
+  st.classList.remove("hidden");
+}
+function makeStudentId(name, section){
+  const raw = name.trim().toLowerCase()+"|||"+section.trim().toLowerCase()+"|||"+COURSE_TITLE;
+  let base;
+  try{ base = btoa(unescape(encodeURIComponent(raw))); }
+  catch(e){ base = raw; }
+  return base.replace(/[^A-Za-z0-9]/g,"").slice(0,80) || "student";
 }
 
-function renderQuestion() {
+function renderQuestion(){
   const q = QUESTIONS[currentIndex];
   qtext.textContent = q.q;
   choicesEl.innerHTML = "";
-  const letters = ["A","B","C","D"];
-  letters.forEach(l => {
-    const checked = selectedAnswers[currentIndex] === l ? " checked" : "";
-    const html = `
+  ["A","B","C","D"].forEach(letter=>{
+    const checked = selectedAnswers[currentIndex]===letter ? " checked" : "";
+    choicesEl.insertAdjacentHTML("beforeend",`
       <label class="choice">
-        <input type="radio" name="opt" value="${l}"${checked}>
-        <div><b>${l}.</b> ${q[l]}</div>
-      </label>`;
-    choicesEl.insertAdjacentHTML("beforeend", html);
+        <input type="radio" name="opt" value="${letter}"${checked}>
+        <div><b>${letter}.</b> ${q[letter]}</div>
+      </label>
+    `);
   });
-  pillCount.textContent = "Q: " + (currentIndex + 1) + " / " + QUESTIONS.length;
-  if (QUESTIONS.length > 1) {
-    const pct = (currentIndex / (QUESTIONS.length - 1)) * 100;
-    barEl.style.width = pct + "%";
-  } else {
-    barEl.style.width = "0%";
-  }
-  btnPrev.disabled = (currentIndex === 0);
-  if (currentIndex === QUESTIONS.length - 1) {
+
+  pillCount.textContent = `Q: ${currentIndex+1} / ${QUESTIONS.length}`;
+  barEl.style.width = (currentIndex/(QUESTIONS.length-1))*100+"%";
+
+  btnPrev.disabled = currentIndex===0;
+  if(currentIndex===QUESTIONS.length-1){
     btnNext.classList.add("hidden");
     btnSubmit.classList.remove("hidden");
   } else {
     btnNext.classList.remove("hidden");
     btnSubmit.classList.add("hidden");
   }
-  showErr(errStage2, "");
+  showErr(errStage2,"");
 }
-
-function getSelectedValue() {
-  const sel = choicesEl.querySelector("input[name='opt']:checked");
-  return sel ? sel.value : null;
+function getSelectedValue(){
+  const s = choicesEl.querySelector("input[name='opt']:checked");
+  return s ? s.value : null;
 }
-
-function startTimer() {
+function startTimer(){
   secondsLeft = EXAM_SECONDS;
-  pillTimer.textContent = "Time: 60:00";
-  if (timerId) {
-    clearInterval(timerId);
-  }
-  timerId = setInterval(() => {
-    secondsLeft -= 1;
-    if (secondsLeft < 0) secondsLeft = 0;
-    const m = Math.floor(secondsLeft / 60);
-    const s = secondsLeft % 60;
-    pillTimer.textContent = "Time: " +
-      String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
-    if (secondsLeft <= 0) {
+  if(timerId) clearInterval(timerId);
+  timerId = setInterval(()=>{
+    secondsLeft--;
+    const m = Math.floor(secondsLeft/60), s = secondsLeft%60;
+    pillTimer.textContent = `Time: ${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    if(secondsLeft<=0){
       clearInterval(timerId);
       timerId = null;
       autoSubmit();
     }
-  }, 1000);
+  },1000);
 }
-
-async function getAttemptCountForStudent(id) {
-  try {
-    const attemptsCol = collection(
-      db,
-      "finals-exam", EXAM_DOC_ID,
-      "submissions", id,
-      "attempts"
-    );
-    const snap = await getDocs(attemptsCol);
-    return snap.size;
-  } catch (e) {
-    console.warn("Attempt count check failed:", e);
-    // If attempt check fails due to permissions, treat as 0 attempts
-    return 0;
+function computeScore(){
+  let s=0;
+  for(let i=0;i<QUESTIONS.length;i++){
+    if(selectedAnswers[i]===QUESTIONS[i].ans) s++;
   }
+  return s;
+}
+function buildAnswerSheet(){
+  return QUESTIONS.map((q,i)=>({
+    questionNumber:q.num,
+    question:q.q,
+    options:{A:q.A,B:q.B,C:q.C,D:q.D},
+    correctAnswer:q.ans,
+    chosenAnswer:selectedAnswers[i],
+    isCorrect:selectedAnswers[i]===q.ans
+  }));
 }
 
-function computeScore() {
-  let score = 0;
-  for (let i = 0; i < QUESTIONS.length; i++) {
-    const q = QUESTIONS[i];
-    if (selectedAnswers[i] && selectedAnswers[i] === q.ans) {
-      score += 1;
-    }
-  }
-  return score;
-}
+/* =============================
+   EVENT HANDLERS
+   ============================= */
 
-function buildAnswerSheet() {
-  const out = [];
-  for (let i = 0; i < QUESTIONS.length; i++) {
-    const q = QUESTIONS[i];
-    out.push({
-      questionNumber: q.num,
-      question: q.q,
-      options: { A: q.A, B: q.B, C: q.C, D: q.D },
-      correctAnswer: q.ans,
-      chosenAnswer: selectedAnswers[i],
-      isCorrect: selectedAnswers[i] === q.ans
-    });
-  }
-  return out;
-}
-
-// ==== Button handlers ====
-btnUnderstand.addEventListener("click", () => {
-  if (isClosed()) {
-    showErr(errStage0, "This exam is already closed. Deadline was 11:59:59 PM on 21 November 2025.");
+btnUnderstand.addEventListener("click",()=>{
+  if(isClosed()){
+    showErr(errStage0,"This exam is already closed.");
     return;
   }
-  showErr(errStage0, "");
+  showErr(errStage0,"");
   switchStage(stage1);
 });
 
-btnBack.addEventListener("click", () => {
+btnBack.addEventListener("click",()=>{
   switchStage(stage0);
 });
 
-btnStart.addEventListener("click", async () => {
-  if (isClosed()) {
-    showErr(errStage1, "This exam is already closed. Deadline was 11:59:59 PM on 21 November 2025.");
+btnStart.addEventListener("click", async ()=>{
+  if(isClosed()){
+    showErr(errStage1,"This exam is already closed.");
     return;
   }
   const nm = inpName.value.trim();
   const sec = inpSection.value.trim();
-  if (!nm) {
-    showErr(errStage1, "Please enter your full name.");
-    return;
-  }
-  if (!sec) {
-    showErr(errStage1, "Please enter your Year & Section.");
-    return;
-  }
-  showErr(errStage1, "");
+  if(!nm){ showErr(errStage1,"Please enter your full name."); return; }
+  if(!sec){ showErr(errStage1,"Please enter your Year & Section."); return; }
+  showErr(errStage1,"");
 
   studentName = nm;
   studentSection = sec;
+  studentId = makeStudentId(nm, sec);
 
-  let raw = nm + "|||" + sec + "|||" + COURSE_TITLE;
-  let base;
-  try {
-    base = btoa(unescape(encodeURIComponent(raw)));
-  } catch (e) {
-    base = raw;
+  // Check attempt count from existing doc (if any)
+  try{
+    const ref = doc(db,"finals-exam",EXAM_DOC_ID,"submissions",studentId);
+    const snap = await getDoc(ref);
+    if(snap.exists()){
+      const data = snap.data() || {};
+      attemptCountUsed = typeof data.attemptCount === "number" ? data.attemptCount : 0;
+    } else {
+      attemptCountUsed = 0;
+    }
+  }catch(e){
+    console.warn("Attempt check failed:", e);
+    // If rules fail, default to 0 so they can still take the exam
+    attemptCountUsed = 0;
   }
-  studentId = base.replace(/[^A-Za-z0-9]/g, "").slice(0,80) || "student";
 
-  const attemptCount = await getAttemptCountForStudent(studentId);
-  if (attemptCount >= 2) {
-    showErr(errStage1, "You have already used your 2 allowed attempts. Further attempts are blocked.");
+  if(attemptCountUsed >= 2){
+    showErr(errStage1,"You have already used your 2 attempts for this exam.");
     return;
   }
 
-  metaRow.classList.remove("hidden");
   pillName.textContent = "Name: " + studentName;
   pillSection.textContent = "Year/Section: " + studentSection;
-  pillCount.textContent = "Q: 1 / " + QUESTIONS.length;
+  pillAttempts.textContent = `Attempts used: ${attemptCountUsed} / 2`;
+  metaRow.classList.remove("hidden");
 
   currentIndex = 0;
   selectedAnswers = new Array(QUESTIONS.length).fill(null);
@@ -943,119 +541,129 @@ btnStart.addEventListener("click", async () => {
   startTimer();
 });
 
-btnNext.addEventListener("click", () => {
+btnNext.addEventListener("click",()=>{
   const sel = getSelectedValue();
-  if (!sel) {
-    showErr(errStage2, "Please choose an answer before proceeding.");
+  if(!sel){
+    showErr(errStage2,"Please choose an answer before proceeding.");
     return;
   }
   selectedAnswers[currentIndex] = sel;
-  if (currentIndex < QUESTIONS.length - 1) {
-    currentIndex += 1;
+  currentIndex++;
+  renderQuestion();
+});
+
+btnPrev.addEventListener("click",()=>{
+  const sel = getSelectedValue();
+  if(sel) selectedAnswers[currentIndex] = sel;
+  if(currentIndex>0){
+    currentIndex--;
     renderQuestion();
   }
 });
 
-btnPrev.addEventListener("click", () => {
+btnSubmit.addEventListener("click",()=>{
   const sel = getSelectedValue();
-  if (sel) {
-    selectedAnswers[currentIndex] = sel;
-  }
-  if (currentIndex > 0) {
-    currentIndex -= 1;
-    renderQuestion();
-  }
-});
-
-btnSubmit.addEventListener("click", () => {
-  const sel = getSelectedValue();
-  if (!sel) {
-    showErr(errStage2, "Please choose an answer before submitting.");
+  if(!sel){
+    showErr(errStage2,"Please choose an answer before submitting.");
     return;
   }
   selectedAnswers[currentIndex] = sel;
   submitExam(false);
 });
 
-// ==== Submission logic ====
-async function submitExam(autoSubmitted) {
-  if (submitting) return;
+/* =============================
+   SUBMISSION
+   ============================= */
+
+async function submitExam(autoSubmitted){
+  if(submitting) return;
   submitting = true;
+
   btnSubmit.disabled = true;
   btnNext.disabled = true;
   btnPrev.disabled = true;
-  showErr(errStage2, "");
-  if (timerId) {
+
+  if(timerId){
     clearInterval(timerId);
     timerId = null;
   }
 
+  // Final attempt check in case doc was updated in between
+  let latestAttemptCount = attemptCountUsed;
+  try{
+    const ref = doc(db,"finals-exam",EXAM_DOC_ID,"submissions",studentId);
+    const snap = await getDoc(ref);
+    if(snap.exists()){
+      const data = snap.data() || {};
+      latestAttemptCount = typeof data.attemptCount === "number" ? data.attemptCount : 0;
+    } else {
+      latestAttemptCount = attemptCountUsed;
+    }
+  }catch(e){
+    console.warn("Re-check attempt failed:", e);
+  }
+
+  if(latestAttemptCount >= 2){
+    alert("Submission failed: you have already used your 2 attempts.");
+    submitting = false;
+    btnSubmit.disabled = false;
+    btnNext.disabled = false;
+    btnPrev.disabled = false;
+    return;
+  }
+
   const score = computeScore();
   const answerSheet = buildAnswerSheet();
+  const newAttemptCount = latestAttemptCount + 1;
 
   const payload = {
     Course: COURSE_TITLE,
     submissionDate: serverTimestamp(),
     Score: score,
     Name: studentName,
-    secondsRemaining: secondsLeft,
     section: studentSection,
+    secondsRemaining: secondsLeft,
     answers: answerSheet,
+    attemptCount: newAttemptCount,
     autoSubmitted: !!autoSubmitted
   };
 
-  try {
-    const attemptsCol = collection(
-      db,
-      "finals-exam", EXAM_DOC_ID,
-      "submissions", studentId,
-      "attempts"
-    );
-    const snap = await getDocs(attemptsCol);
-    const attemptNum = snap.size + 1;
-    const ref = doc(
-      db,
-      "finals-exam", EXAM_DOC_ID,
-      "submissions", studentId,
-      "attempts",
-      "attempt" + attemptNum
-    );
-    await setDoc(ref, payload);
+  try{
+    const ref = doc(db,"finals-exam",EXAM_DOC_ID,"submissions",studentId);
+    await setDoc(ref, payload, { merge:true });
 
-    alert("your exam has been submitted");
+    alert("Your exam has been submitted.");
     rName.textContent = studentName;
     rSection.textContent = studentSection;
-    rScore.textContent = score + " / " + QUESTIONS.length;
+    rScore.textContent = `${score} / ${QUESTIONS.length}`;
+    rNote.style.display = "none";
     switchStage(stage3);
-  } catch (e) {
+  }catch(e){
     console.error("Submission failed:", e);
-    alert("submission fail, please try again");
+    alert("Submission failed. Please try again.");
+    // allow retry; do NOT disable submit permanently
+    submitting = false;
     btnSubmit.disabled = false;
     btnNext.disabled = false;
-    btnPrev.disabled = (currentIndex === 0);
-    if (!timerId && secondsLeft > 0) {
+    btnPrev.disabled = false;
+    if(secondsLeft > 0 && !timerId){
       startTimer();
     }
-    submitting = false;
-    return;
   }
-
-  submitting = false;
 }
 
-async function autoSubmit() {
-  if (submitting) return;
+async function autoSubmit(){
   const sel = getSelectedValue();
-  if (sel) {
-    selectedAnswers[currentIndex] = sel;
-  }
+  if(sel) selectedAnswers[currentIndex] = sel;
   await submitExam(true);
 }
 
-// Initial meta text
+/* =============================
+   INITIAL UI TEXT
+   ============================= */
 pillTimer.textContent = "Time: 60:00";
 pillCount.textContent = "Q: — / " + QUESTIONS.length;
+pillAttempts.textContent = "Attempts used: 0 / 2";
 </script>
 </body>
 </html>
-
